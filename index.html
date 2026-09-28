@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS | Crypto & Sports Betting Terminal</title>
+  <meta name="description" content="Next-generation crypto sportsbook and live betting exchange dashboard.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Global App Container -->
+  <div class="app-layout" id="app">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <a href="#" class="brand-link">
+          <div class="brand-logo-icon">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 2L3 9.5V22.5L16 30L29 22.5V9.5L16 2Z" stroke="url(#neon-grad)" stroke-width="2.5" stroke-linejoin="round"/>
+              <path d="M16 7L8 11.5V20.5L16 25L24 20.5V11.5L16 7Z" fill="url(#neon-grad-fill)" fill-opacity="0.2" stroke="#00FF88" stroke-width="1.5"/>
+              <circle cx="16" cy="16" r="3" fill="#00FF88" class="pulse-dot"/>
+              <defs>
+                <linearGradient id="neon-grad" x1="3" y1="2" x2="29" y2="30" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#00FF88"/>
+                  <stop offset="0.5" stop-color="#7928CA"/>
+                  <stop offset="1" stop-color="#00F0FF"/>
+                </linearGradient>
+                <linearGradient id="neon-grad-fill" x1="8" y1="7" x2="24" y2="25" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#00FF88"/>
+                  <stop offset="1" stop-color="#8B5CF6"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">NEXUS</span>
+            <span class="brand-badge">BET</span>
+          </div>
+        </a>
+        <button class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close Sidebar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- VIP Club Status Pill -->
+      <div class="vip-status-card">
+        <div class="vip-header">
+          <span class="vip-icon">💎</span>
+          <div>
+            <div class="vip-level">VIP LEVEL 4</div>
+            <div class="vip-perk">15% Instant Rakeback</div>
+          </div>
+        </div>
+        <div class="vip-progress-bar">
+          <div class="vip-progress-fill" style="width: 72%;"></div>
+        </div>
+        <div class="vip-progress-meta">
+          <span>Tier Progress</span>
+          <span class="text-neon-cyan">72%</span>
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">GAMING & MARKETS</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#dashboard" class="nav-link active" data-nav="dashboard">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <span>Dashboard</span>
+              <span class="badge-hot">HOT</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#live-sports" class="nav-link" data-nav="live">
+              <svg class="nav-icon text-neon-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+              <span>Live In-Play</span>
+              <span class="live-pill"><span class="live-indicator"></span>24</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#crypto-markets" class="nav-link" data-nav="crypto">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 8h6a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H9m0 0h6a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H9m0-8v8m3-10v2m0 8v2"/></svg>
+              <span>Crypto Markets</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#esports" class="nav-link" data-nav="esports">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="6"/><circle cx="8" cy="12" r="2"/><path d="M15 10v4m-2-2h4"/></svg>
+              <span>Esports Hub</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#schedules" class="nav-link" data-nav="schedules">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <span>Match Schedules</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="nav-section-title">ACCOUNT & SERVICES</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#my-bets" class="nav-link" data-nav="mybets">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              <span>My Bets History</span>
+              <span class="nav-counter" id="activeBetsCounter">3</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#cashier" class="nav-link" data-nav="cashier">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              <span>Wallet & Cashier</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#promotions" class="nav-link" data-nav="promotions">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <span>Promotions & VIP</span>
+              <span class="badge-bonus">+200%</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#settings" class="nav-link" data-nav="settings">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              <span>Settings</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Sidebar Footer / Quick Node Status -->
+      <div class="sidebar-footer">
+        <div class="network-badge">
+          <span class="status-dot"></span>
+          <span class="network-name">Solana / Arbitrum Fast Node</span>
+        </div>
+        <div class="gas-estimate">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          <span>Gas: 12 Gwei</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Wrapper -->
+    <div class="main-wrapper">
+
+      <!-- Top Header -->
+      <header class="top-header">
+        <div class="header-left">
+          <button class="menu-toggle-btn" id="menuToggleBtn" aria-label="Toggle Menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          
+          <div class="search-box">
+            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="globalSearch" placeholder="Search leagues, teams, tokens (e.g. Arsenal, BTC, NBA)..." autocomplete="off">
+            <kbd class="search-kbd">⌘K</kbd>
+          </div>
+        </div>
+
+        <!-- Crypto Mini Ticker -->
+        <div class="header-ticker" id="headerTicker">
+          <div class="ticker-item">
+            <span class="ticker-symbol">BTC</span>
+            <span class="ticker-price">$64,480</span>
+            <span class="ticker-change up">+3.8%</span>
+          </div>
+          <div class="ticker-separator">•</div>
+          <div class="ticker-item">
+            <span class="ticker-symbol">ETH</span>
+            <span class="ticker-price">$3,452</span>
+            <span class="ticker-change up">+2.4%</span>
+          </div>
+          <div class="ticker-separator">•</div>
+          <div class="ticker-item">
+            <span class="ticker-symbol">SOL</span>
+            <span class="ticker-price">$154.20</span>
+            <span class="ticker-change up">+7.1%</span>
+          </div>
+        </div>
+
+        <!-- Header Actions: Wallet & Profile -->
+        <div class="header-right">
+          <!-- Currency Display Toggle & Balance ($4,520.00) -->
+          <div class="wallet-balance-card" id="walletCard" title="Click to cycle display currency (USD / BTC / ETH)">
+            <div class="balance-meta">
+              <span class="balance-label">PORTFOLIO BALANCE</span>
+              <div class="balance-amount-wrap">
+                <span class="currency-symbol" id="currSymbol">$</span>
+                <span class="balance-amount" id="balanceDisplay">4,520.00</span>
+                <span class="balance-unit" id="currUnit">USD</span>
+              </div>
+            </div>
+            <button class="deposit-btn-neon" id="openDepositModalBtn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <span>Deposit</span>
+            </button>
+          </div>
+
+          <!-- Notification Bell -->
+          <div class="header-icon-btn notification-wrapper" id="notifBtn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span class="notif-badge">2</span>
+          </div>
+
+          <!-- Betslip Mobile / Header Trigger -->
+          <button class="betslip-trigger-btn" id="betslipTriggerBtn" aria-label="Toggle Betslip">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 14l2 2 4-4"/></svg>
+            <span class="betslip-count" id="headerSlipCount">0</span>
+          </button>
+
+          <!-- User Profile -->
+          <div class="user-profile-menu">
+            <div class="avatar-wrap">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Avatar" class="user-avatar">
+              <span class="online-indicator"></span>
+            </div>
+            <div class="user-info d-none-mobile">
+              <div class="user-name">Alex.eth</div>
+              <div class="user-tag">PRO TRADER</div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Dashboard Grid Layout (Content Stream + Betslip Drawer) -->
+      <main class="dashboard-body">
+        
+        <!-- Primary Content Area -->
+        <div class="content-stream">
+
+          <!-- Hero Section: Featured Live Clash -->
+          <section class="hero-featured-card">
+            <div class="hero-glow-fx"></div>
+            <div class="hero-top-bar">
+              <div class="league-pill">
+                <span class="league-icon">🏆</span>
+                <span>UEFA CHAMPIONS LEAGUE • SEMI-FINAL</span>
+              </div>
+              <div class="live-clock-pill">
+                <span class="live-pulse"></span>
+                <span class="match-minute">71' SECOND HALF</span>
+              </div>
+            </div>
+
+            <div class="hero-matchup">
+              <!-- Team Home -->
+              <div class="hero-team home">
+                <div class="hero-team-crest crest-madrid">RM</div>
+                <div class="hero-team-info">
+                  <h3 class="team-title">Real Madrid</h3>
+                  <span class="team-sub">La Liga • Home</span>
+                </div>
+              </div>
+
+              <!-- Score Centerpiece -->
+              <div class="hero-scoreboard">
+                <div class="score-digits">
+                  <span class="digit">2</span>
+                  <span class="colon">:</span>
+                  <span class="digit">1</span>
+                </div>
+                <div class="possession-meter" title="Live Ball Possession: 58% - 42%">
+                  <div class="possession-bar-home" style="width: 58%;"></div>
+                  <div class="possession-bar-away" style="width: 42%;"></div>
+                </div>
+                <div class="possession-labels">
+                  <span>58%</span>
+                  <span class="meter-text">POSSESSION</span>
+                  <span>42%</span>
+                </div>
+              </div>
+
+              <!-- Team Away -->
+              <div class="hero-team away">
+                <div class="hero-team-info text-right">
+                  <h3 class="team-title">Manchester City</h3>
+                  <span class="team-sub">Premier League • Away</span>
+                </div>
+                <div class="hero-team-crest crest-city">MCI</div>
+              </div>
+            </div>
+
+            <!-- Hero Live Markets (Clickable Odds) -->
+            <div class="hero-markets-grid">
+              <button class="hero-odd-btn odd-btn" data-match="Real Madrid vs Man City" data-bet="Real Madrid (1)" data-odds="1.85">
+                <span class="odd-choice">1 (Real Madrid)</span>
+                <span class="odd-val text-neon-green">1.85</span>
+              </button>
+              <button class="hero-odd-btn odd-btn" data-match="Real Madrid vs Man City" data-bet="Draw (X)" data-odds="3.65">
+                <span class="odd-choice">Draw (X)</span>
+                <span class="odd-val">3.65</span>
+              </button>
+              <button class="hero-odd-btn odd-btn" data-match="Real Madrid vs Man City" data-bet="Man City (2)" data-odds="4.20">
+                <span class="odd-choice">2 (Man City)</span>
+                <span class="odd-val">4.20</span>
+              </button>
+              <button class="hero-odd-btn odd-btn" data-match="Real Madrid vs Man City" data-bet="Over 3.5 Goals" data-odds="2.10">
+                <span class="odd-choice">Over 3.5 Goals</span>
+                <span class="odd-val text-neon-purple">2.10</span>
+              </button>
+            </div>
+          </section>
+
+          <!-- Sports Category Filter Tabs -->
+          <div class="category-tabs-bar">
+            <div class="tabs-scroll-wrap">
+              <button class="cat-tab active" data-sport="all">
+                <span class="cat-icon">🔥</span>
+                <span>All Markets</span>
+                <span class="cat-badge">24</span>
+              </button>
+              <button class="cat-tab" data-sport="soccer">
+                <span class="cat-icon">⚽</span>
+                <span>Soccer</span>
+                <span class="cat-badge">12</span>
+              </button>
+              <button class="cat-tab" data-sport="basketball">
+                <span class="cat-icon">🏀</span>
+                <span>Basketball</span>
+                <span class="cat-badge">6</span>
+              </button>
+              <button class="cat-tab" data-sport="tennis">
+                <span class="cat-icon">🎾</span>
+                <span>Tennis</span>
+                <span class="cat-badge">4</span>
+              </button>
+              <button class="cat-tab" data-sport="esports">
+                <span class="cat-icon">🎮</span>
+                <span>CS2 & LoL</span>
+                <span class="cat-badge">5</span>
+              </button>
+              <button class="cat-tab" data-sport="crypto">
+                <span class="cat-icon">⚡</span>
+                <span>Crypto Specials</span>
+                <span class="cat-badge">8</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Section: Live In-Play Odds Cards -->
+          <section class="section-block">
+            <div class="section-header">
+              <div class="section-title-wrap">
+                <div class="neon-indicator-dot"></div>
+                <h2 class="section-title">Live In-Play Odds</h2>
+                <span class="live-ticker-count">Real-time dynamic feeds</span>
+              </div>
+              <div class="market-format-switch">
+                <span class="format-label">Odds Format:</span>
+                <select id="oddsFormatSelect" class="cyber-select">
+                  <option value="decimal">Decimal (2.10)</option>
+                  <option value="american">American (+110)</option>
+                  <option value="fractional">Fractional (11/10)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Matches List / Cards Grid -->
+            <div class="matches-grid" id="matchesContainer">
+
+              <!-- Match Card 1: Soccer -->
+              <article class="match-card" data-sport="soccer" data-match-id="m1">
+                <div class="card-meta-row">
+                  <div class="league-tag">
+                    <span class="sport-emoji">⚽</span>
+                    <span>Premier League • Matchday 32</span>
+                  </div>
+                  <div class="card-clock live">
+                    <span class="mini-pulsar"></span>
+                    <span>54'</span>
+                  </div>
+                </div>
+
+                <div class="match-teams-row">
+                  <div class="team-item">
+                    <div class="team-badge badge-arsenal">ARS</div>
+                    <span class="team-name">Arsenal</span>
+                    <span class="team-score">2</span>
+                  </div>
+                  <div class="team-item">
+                    <div class="team-badge badge-chelsea">CHE</div>
+                    <span class="team-name">Chelsea</span>
+                    <span class="team-score">1</span>
+                  </div>
+                </div>
+
+                <div class="odds-row">
+                  <div class="odds-col">
+                    <span class="odd-label">1 (ARS)</span>
+                    <button class="odd-btn" data-match="Arsenal vs Chelsea" data-bet="Arsenal" data-odds="1.48">
+                      <span class="odd-num">1.48</span>
+                      <svg class="odd-trend up" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
+                    </button>
+                  </div>
+                  <div class="odds-col">
+                    <span class="odd-label">DRAW</span>
+                    <button class="odd-btn" data-match="Arsenal vs Chelsea" data-bet="Draw" data-odds="4.20">
+                      <span class="odd-num">4.20</span>
+                    </button>
+                  </div>
+                  <div class="odds-col">
+                    <span class="odd-label">2 (CHE)</span>
+                    <button class="odd-btn" data-match="Arsenal vs Chelsea" data-bet="Chelsea" data-odds="6.80">
+                      <span class="odd-num">6.80</span>
+                      <svg class="odd-trend down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                  </div>
+                  <div class="odds-col">
+                    <span class="odd-label">OVER 3.5</span>
+                    <button class="odd-btn" data-match="Arsenal vs Chelsea" data-bet="Over 3.5" data-odds="1.95">
+                      <span class="odd-num">1.95</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="card-footer-meta">
+                  <span class="stat-badge">⚡ Attacks: 42 - 28</span>
+                  <span class="stat-badge">🎯 SOT: 7 - 3</span>
+                  <a href="#stats" class="stats-link" onclick="event.preventDefault(); window.toast('Detailed Match Telemetry Loaded', 'info')">Telemetry →</a>
+                </div>
+              </article>
+
+              <!-- Match Card 2: Basketball NBA -->
+              <article class="match-card" data-sport="basketball" data-match-id="m2">
+                <div class="card-meta-row">
+                  <div class="league-tag">
+                    <span class="sport-emoji">🏀</span>
+                    <span>NBA Regular Season • Q3</span>
+                  </div>
+                  <div class="card-clock live">
+                    <span class="mini-pulsar"></span>
+                    <span>Q3 04:12</span>
+                  </div>
+                </div>
+
+                <div class="match-teams-row">
+                  <div class="team-item">
+                    <div class="team-badge badge-lakers">LAL</div>
+                    <span class="team-name">LA Lakers</span>
+                    <span class="team-score">78</span>
+                  </div>
+                  <div class="team-item">
+                    <div class="team-badge badge-warriors">GSW</div>
+                    <span class="team-name">GS Warriors</span>
+                    <span class="team-score">82</span>
+                  </div>
+                </div>
+
+                <div class="odds-row">
+                  <div class="odds-col">
+                    <span class="odd-label">LAL (+3.5)</span>
+                    <button class="odd-btn" data-match="Lakers vs Warriors" data-bet="Lakers (+3.5)" data-odds="1.91">
+                      <span class="odd-num">1.91</span>
+                    </button>
+                  </div>
+                  <div class="odds-col">
+                    <span class="odd-label">MONEYLINE</span>
+                    <button class="odd-btn" data-match="Lakers vs Warriors" data-bet="Lakers ML" data-odds="2.25">
+                      <span class="odd-num">2.25</span>
+                    </button>
+                  </div>
+                  <div class="odds-col">
+                    <span class="odd-label">GSW ML</span>
+                    <button class="odd-btn" data-match="Lakers vs Warriors" data-bet="Warriors ML" data-odds="1.67">
+                      <span class="odd-num">1.67</span>
+                      <svg class="odd-trend up" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
+                    </button>
+                  </div>
+                  <div class="odds-col">
+                    <span class="odd-label">O 224.5</span>
+                    <button class="odd-btn" data-match="Lakers vs Warriors" data-bet="Over 224.5" data-odds="1.88">
+                      <span class="odd-num">1.88</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="card-footer-meta">
+                  <span class="stat-badge">🔥 Curry: 27 pts (6/9 3PT)</span>
+                  <span class="stat-badge">👑 James: 24 pts</span>
+                  <a href="#stats" class="stats-link" onclick="event.preventDefault(); window.toast('Shot Chart & Court Tracker', 'info')">Court View →</a>
+                </div>
+              </article>
+
+              <!-- Match Card 3: Esports CS2 -->
+              <article class="match-card" data-sport="esports" data-match-id="m3">
+                <div class="card-meta-row">
+                  <div class="league-tag">
+                    <span class="sport-emoji">🎮</span>
+                    <span>PGL CS2 Major Grand Final • Map 2</span>
+                  </div>
+                  <div class="card-clock live">
+                    <span class="mini-pulsar"></span>
+                    <span>Map 2: 11 - 9</span>
+                  </div>
+                </div>
+
+                <div class="match-teams-row">
+                  <div class="team-item">
+                    <div class="team-badge badge-navi">NAVI</div>
+                    <span class="team-name">Natus Vincere</span>
+                    <span class="team-score">1</span>
+                  </div>
+                  <div class="team-item">
+                    <div class="team-badge badge-faze">FAZE</div>
+                    <span class="team-name">FaZe Clan</span>
+                    <span class="team-score">0</span>
+                  </div>
+                </div>
+
+                <div class="odds-row">
+                  <div class="odds-col">
+                    <span class="odd-label">NAVI MAP 2</span>
+                    <button class="odd-btn" data-match="NaVi vs FaZe (CS2)" data-bet="NaVi Map 2" data-odds="1.62">
+                      <span class="odd-num">1.62</span>
+                    </button>
+                  </div>
+                  <div class="odds-col">
+                    <span class="odd-label">FAZE MAP 2</span>
+                    <button class="odd-btn" data-match="NaVi vs FaZe (CS2)" data-bet="FaZe Map 2" data-odds="2.30">
+                      <span class="odd-num">2.30</span>
+                      <svg class="odd-trend down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                  </div>
+                  <div class="odds-col">
+                    <span class="odd-label">TOTAL ROUNDS >21.5</span>
+                    <button class="odd-btn" data-match="NaVi vs FaZe (CS2)" data-bet="Over 21.5 Rounds" data-odds="1.75">
+                      <span class="odd-num">1.75</span>
+                    </button>
+                  </div>
+                  <div class="odds-col">
+                    <span class="odd-label">SERIES 2-0</span>
+                    <button class="odd-btn" data-match="NaVi vs FaZe (CS2)" data-bet="NaVi 2-0 Sweep" data-odds="2.65">
+                      <span class="odd-num">2.65</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="card-footer-meta">
+                  <span class="stat-badge">💥 Mirage • NAVI CT side</span>
+                  <span class="stat-badge">📺 840K Viewers</span>
+                  <a href="#stats" class="stats-link" onclick="event.preventDefault(); window.toast('Radar Stream Connected', 'info')">Live Stream →</a>
+                </div>
+              </article>
+
+              <!-- Match Card 4: Tennis -->
+              <article class="match-card" data-sport="tennis" data-match-id="m4">
+                <div class="card-meta-row">
+                  <div class="league-tag">
+                    <span class="sport-emoji">🎾</span>
+                    <span>ATP Masters 1000 • Set 3</span>
+                  </div>
+                  <div class="card-clock live">
+                    <span class="mini-pulsar"></span>
+                    <span>Set 3 (4-4)</span>
+                  </div>
+                </div>
+
+                <div class="match-teams-row">
+                  <div class="team-item">
+                    <div class="team-badge badge-tennis">CA</div>
+                    <span class="team-name">Carlos Alcaraz</span>
+                    <span class="team-score">1</span>
+                  </div>
+                  <div class="team-item">
+                    <div class="team-badge badge-tennis">JS</div>
+                    <span class="team-name">Jannik Sinner</span>
+                    <span class="team-score">1</span>
+                  </div>
+                </div>
+
+                <div class="odds-row">
+                  <div class="odds-col">
+                    <span class="odd-label">ALCARAZ ML</span>
+                    <button class="odd-btn" data-match="Alcaraz vs Sinner" data-bet="Alcaraz To Win" data-odds="2.05">
+                      <span class="odd-num">2.05</span>
+                    </button>
+                  </div>
+                  <div class="odds-col">
+                    <span class="odd-label">SINNER ML</span>
+                    <button class="odd-btn" data-match="Alcaraz vs Sinner" data-bet="Sinner To Win" data-odds="1.80">
+                      <span class="odd-num">1.80</span>
+                      <svg class="odd-trend up" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
+                    </button>
+                  </div>
+                  <div class="odds-col">
+                    <span class="odd-label">TIEBREAK IN S3</span>
+                    <button class="odd-btn" data-match="Alcaraz vs Sinner" data-bet="Set 3 Tiebreak YES" data-odds="2.50">
+                      <span class="odd-num">2.50</span>
+                    </button>
+                  </div>
+                  <div class="odds-col">
+                    <span class="odd-label">TOTAL GAMES >26.5</span>
+                    <button class="odd-btn" data-match="Alcaraz vs Sinner" data-bet="Over 26.5 Games" data-odds="1.70">
+                      <span class="odd-num">1.70</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="card-footer-meta">
+                  <span class="stat-badge">🎾 Sinner Serving (40-30)</span>
+                  <span class="stat-badge">⏱️ Match Duration: 2h 14m</span>
+                  <a href="#stats" class="stats-link" onclick="event.preventDefault(); window.toast('Point by Point Log loaded', 'info')">Point Tracker →</a>
+                </div>
+              </article>
+
+            </div>
+          </section>
+
+          <!-- Section: Trending Crypto Coins & Instant Betting Pairs -->
+          <section class="section-block" id="cryptoSection">
+            <div class="section-header">
+              <div class="section-title-wrap">
+                <span class="crypto-pulse-icon">⚡</span>
+                <h2 class="section-title">Trending Crypto Pairs</h2>
+                <span class="live-ticker-count">Stake directly with native tokens</span>
+              </div>
+              <div class="section-action">
+                <button class="btn-ghost-sm" id="refreshCryptoBtn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                  <span>Sync Rates</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="crypto-cards-grid">
+              
+              <!-- Bitcoin Card -->
+              <div class="crypto-card">
+                <div class="crypto-card-top">
+                  <div class="crypto-identity">
+                    <div class="crypto-icon-box btc-glow">
+                      <svg width="24" height="24" viewBox="0 0 32 32" fill="#F7931A"><circle cx="16" cy="16" r="16" fill="#F7931A"/><path d="M23.189 14.02c.314-2.096-1.283-3.223-3.465-3.975l.708-2.84-1.728-.43-.69 2.765c-.454-.114-.922-.221-1.387-.325l.695-2.784-1.727-.43-.708 2.84c-.376-.086-.744-.17-1.101-.26l.002-.009-2.384-.596-.46 1.846s1.283.294 1.256.312c.7.175.826.64.805 1.01l-.806 3.232c.048.012.11.03.179.057l-.183-.045-1.13 4.532c-.086.213-.304.533-.796.411.017.025-1.256-.314-1.256-.314l-.858 1.978 2.25.561c.418.105.828.214 1.23.319l-.717 2.875 1.727.43.708-2.837c.472.127.93.245 1.378.357l-.705 2.827 1.728.43.717-2.876c2.947.558 5.164.333 6.097-2.333.752-2.146-.037-3.384-1.587-4.192 1.129-.26 1.98-1.003 2.207-2.538zm-3.95 5.538c-.534 2.147-4.148.987-5.32.695l.95-3.805c1.171.293 4.929.872 4.37 3.11zm.535-5.569c-.488 1.954-3.498.962-4.475.719l.86-3.45c.977.243 4.128.7 3.615 2.731z" fill="#FFF"/></svg>
+                    </div>
+                    <div>
+                      <div class="coin-name">Bitcoin</div>
+                      <div class="coin-symbol">BTC / USDT</div>
+                    </div>
+                  </div>
+                  <div class="coin-change-pill positive">+3.84%</div>
+                </div>
+
+                <div class="crypto-price-row">
+                  <div class="coin-price" id="btcPrice">$64,480.20</div>
+                  <div class="coin-vol">Vol: $32.4B</div>
+                </div>
+
+                <!-- SVG Sparkline Chart -->
+                <div class="sparkline-wrap">
+                  <svg class="sparkline" viewBox="0 0 120 40">
+                    <defs>
+                      <linearGradient id="btc-spark" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#00FF88" stop-opacity="0.3"/>
+                        <stop offset="100%" stop-color="#00FF88" stop-opacity="0.0"/>
+                      </linearGradient>
+                    </defs>
+                    <path d="M0,32 Q20,28 35,30 T70,18 T95,14 L120,6 L120,40 L0,40 Z" fill="url(#btc-spark)"/>
+                    <path d="M0,32 Q20,28 35,30 T70,18 T95,14 L120,6" fill="none" stroke="#00FF88" stroke-width="2"/>
+                  </svg>
+                </div>
+
+                <div class="crypto-action-row">
+                  <button class="coin-quick-btn" onclick="window.selectCryptoStake('BTC')">Bet with BTC</button>
+                  <button class="coin-stat-btn" onclick="window.toast('BTC Market Depth: 84% Buy Pressure', 'success')">Depth</button>
+                </div>
+              </div>
+
+              <!-- Ethereum Card -->
+              <div class="crypto-card">
+                <div class="crypto-card-top">
+                  <div class="crypto-identity">
+                    <div class="crypto-icon-box eth-glow">
+                      <svg width="24" height="24" viewBox="0 0 32 32" fill="#627EEA"><circle cx="16" cy="16" r="16" fill="#627EEA"/><path d="M16.498 4v8.87l7.497 3.35z" fill="#FFF" fill-opacity=".6"/><path d="M16.498 4L9 16.22l7.498-3.35z" fill="#FFF"/><path d="M16.498 21.968v6.027L24 17.616z" fill="#FFF" fill-opacity=".6"/><path d="M16.498 27.995v-6.028L9 17.616z" fill="#FFF"/><path d="M16.498 20.573l7.497-4.353-7.497-3.348z" fill="#FFF" fill-opacity=".2"/><path d="M9 16.22l7.498 4.353v-7.701z" fill="#FFF" fill-opacity=".6"/></svg>
+                    </div>
+                    <div>
+                      <div class="coin-name">Ethereum</div>
+                      <div class="coin-symbol">ETH / USDT</div>
+                    </div>
+                  </div>
+                  <div class="coin-change-pill positive">+4.21%</div>
+                </div>
+
+                <div class="crypto-price-row">
+                  <div class="coin-price" id="ethPrice">$3,452.80</div>
+                  <div class="coin-vol">Vol: $18.2B</div>
+                </div>
+
+                <!-- SVG Sparkline Chart -->
+                <div class="sparkline-wrap">
+                  <svg class="sparkline" viewBox="0 0 120 40">
+                    <defs>
+                      <linearGradient id="eth-spark" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.3"/>
+                        <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.0"/>
+                      </linearGradient>
+                    </defs>
+                    <path d="M0,35 Q30,30 50,22 T90,16 L120,4 L120,40 L0,40 Z" fill="url(#eth-spark)"/>
+                    <path d="M0,35 Q30,30 50,22 T90,16 L120,4" fill="none" stroke="#8B5CF6" stroke-width="2"/>
+                  </svg>
+                </div>
+
+                <div class="crypto-action-row">
+                  <button class="coin-quick-btn" onclick="window.selectCryptoStake('ETH')">Bet with ETH</button>
+                  <button class="coin-stat-btn" onclick="window.toast('ETH Gas: 14 Gwei (Ultra Fast)', 'info')">Gas</button>
+                </div>
+              </div>
+
+              <!-- Solana Card -->
+              <div class="crypto-card">
+                <div class="crypto-card-top">
+                  <div class="crypto-identity">
+                    <div class="crypto-icon-box sol-glow">
+                      <svg width="24" height="24" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#14F195"/><path d="M9.8 19.4a.8.8 0 0 1 .5-.2h14.4c.4 0 .7.4.4.7l-2.6 2.6a.8.8 0 0 1-.5.2H7.6a.4.4 0 0 1-.4-.7l2.6-2.6zm0-7.8a.8.8 0 0 1 .5-.2h14.4c.4 0 .7.4.4.7l-2.6 2.6a.8.8 0 0 1-.5.2H7.6a.4.4 0 0 1-.4-.7l2.6-2.6zm12.4-3.9a.8.8 0 0 0-.5.2H7.3c-.4 0-.7.4-.4.7l2.6 2.6c.1.1.3.2.5.2h14.4c.4 0 .7-.4.4-.7l-2.6-2.6a.8.8 0 0 0-.4-.4z" fill="#000"/></svg>
+                    </div>
+                    <div>
+                      <div class="coin-name">Solana</div>
+                      <div class="coin-symbol">SOL / USDT</div>
+                    </div>
+                  </div>
+                  <div class="coin-change-pill positive">+8.92%</div>
+                </div>
+
+                <div class="crypto-price-row">
+                  <div class="coin-price" id="solPrice">$154.20</div>
+                  <div class="coin-vol">Vol: $8.9B</div>
+                </div>
+
+                <!-- SVG Sparkline Chart -->
+                <div class="sparkline-wrap">
+                  <svg class="sparkline" viewBox="0 0 120 40">
+                    <defs>
+                      <linearGradient id="sol-spark" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#00F0FF" stop-opacity="0.3"/>
+                        <stop offset="100%" stop-color="#00F0FF" stop-opacity="0.0"/>
+                      </linearGradient>
+                    </defs>
+                    <path d="M0,38 Q25,32 55,20 T85,12 L120,2 L120,40 L0,40 Z" fill="url(#sol-spark)"/>
+                    <path d="M0,38 Q25,32 55,20 T85,12 L120,2" fill="none" stroke="#00F0FF" stroke-width="2"/>
+                  </svg>
+                </div>
+
+                <div class="crypto-action-row">
+                  <button class="coin-quick-btn" onclick="window.selectCryptoStake('SOL')">Bet with SOL</button>
+                  <button class="coin-stat-btn" onclick="window.toast('Solana Speed: 400ms Confirmation', 'success')">TPS</button>
+                </div>
+              </div>
+
+              <!-- TON Card -->
+              <div class="crypto-card">
+                <div class="crypto-card-top">
+                  <div class="crypto-identity">
+                    <div class="crypto-icon-box ton-glow">
+                      <svg width="24" height="24" viewBox="0 0 32 32" fill="#0098EA"><circle cx="16" cy="16" r="16" fill="#0098EA"/><path d="M23.5 10.5L16 23.5L8.5 10.5H23.5Z" fill="#FFF"/></svg>
+                    </div>
+                    <div>
+                      <div class="coin-name">Toncoin</div>
+                      <div class="coin-symbol">TON / USDT</div>
+                    </div>
+                  </div>
+                  <div class="coin-change-pill negative">-1.35%</div>
+                </div>
+
+                <div class="crypto-price-row">
+                  <div class="coin-price" id="tonPrice">$5.84</div>
+                  <div class="coin-vol">Vol: $1.4B</div>
+                </div>
+
+                <!-- SVG Sparkline Chart -->
+                <div class="sparkline-wrap">
+                  <svg class="sparkline" viewBox="0 0 120 40">
+                    <defs>
+                      <linearGradient id="ton-spark" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#FF3366" stop-opacity="0.3"/>
+                        <stop offset="100%" stop-color="#FF3366" stop-opacity="0.0"/>
+                      </linearGradient>
+                    </defs>
+                    <path d="M0,15 Q30,12 60,25 T90,28 L120,32 L120,40 L0,40 Z" fill="url(#ton-spark)"/>
+                    <path d="M0,15 Q30,12 60,25 T90,28 L120,32" fill="none" stroke="#FF3366" stroke-width="2"/>
+                  </svg>
+                </div>
+
+                <div class="crypto-action-row">
+                  <button class="coin-quick-btn" onclick="window.selectCryptoStake('TON')">Bet with TON</button>
+                  <button class="coin-stat-btn" onclick="window.toast('TON Telegram Bot Integration Active', 'info')">Bot</button>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <!-- Section: Match Schedules & Upcoming Fixtures -->
+          <section class="section-block" id="schedulesSection">
+            <div class="section-header">
+              <div class="section-title-wrap">
+                <span class="schedule-calendar-icon">📅</span>
+                <h2 class="section-title">Upcoming Fixtures & Schedule</h2>
+                <span class="live-ticker-count">Next 24 Hours • Early Odds Boost</span>
+              </div>
+            </div>
+
+            <div class="table-card-container">
+              <div class="schedule-table-wrap">
+                <table class="schedule-table">
+                  <thead>
+                    <tr>
+                      <th>START TIME</th>
+                      <th>SPORT & EVENT</th>
+                      <th>COMPETITORS</th>
+                      <th class="text-center">HOME (1)</th>
+                      <th class="text-center">DRAW (X)</th>
+                      <th class="text-center">AWAY (2)</th>
+                      <th class="text-right">QUICK ACTION</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="time-primary">Today • 20:00</div>
+                        <div class="countdown-badge">In 2h 15m</div>
+                      </td>
+                      <td>
+                        <div class="event-league">⚽ Premier League</div>
+                        <div class="event-venue">Etihad Stadium</div>
+                      </td>
+                      <td>
+                        <div class="table-matchup">
+                          <strong>Manchester City</strong> vs <strong>Liverpool</strong>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <button class="odd-btn mini-btn" data-match="Man City vs Liverpool" data-bet="Man City" data-odds="1.95">1.95</button>
+                      </td>
+                      <td class="text-center">
+                        <button class="odd-btn mini-btn" data-match="Man City vs Liverpool" data-bet="Draw" data-odds="3.80">3.80</button>
+                      </td>
+                      <td class="text-center">
+                        <button class="odd-btn mini-btn" data-match="Man City vs Liverpool" data-bet="Liverpool" data-odds="3.60">3.60</button>
+                      </td>
+                      <td class="text-right">
+                        <button class="btn-boost-mini" onclick="window.toast('Boosted Odd Added to Slip! (2.20x)', 'success')">⚡ +20% Boost</button>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <div class="time-primary">Tonight • 22:30</div>
+                        <div class="countdown-badge">In 4h 45m</div>
+                      </td>
+                      <td>
+                        <div class="event-league">🏀 NBA Eastern Conf.</div>
+                        <div class="event-venue">TD Garden, Boston</div>
+                      </td>
+                      <td>
+                        <div class="table-matchup">
+                          <strong>Boston Celtics</strong> vs <strong>Milwaukee Bucks</strong>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <button class="odd-btn mini-btn" data-match="Celtics vs Bucks" data-bet="Celtics ML" data-odds="1.55">1.55</button>
+                      </td>
+                      <td class="text-center">
+                        <span class="text-dim">N/A</span>
+                      </td>
+                      <td class="text-center">
+                        <button class="odd-btn mini-btn" data-match="Celtics vs Bucks" data-bet="Bucks ML" data-odds="2.45">2.45</button>
+                      </td>
+                      <td class="text-right">
+                        <button class="btn-boost-mini" onclick="window.toast('Giannis 30+ Pts Prop Loaded', 'info')">Player Props</button>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <div class="time-primary">Tomorrow • 14:00</div>
+                        <div class="countdown-badge">Tomorrow</div>
+                      </td>
+                      <td>
+                        <div class="event-league">🎮 CS2 BLAST Premier</div>
+                        <div class="event-venue">Copenhagen Arena</div>
+                      </td>
+                      <td>
+                        <div class="table-matchup">
+                          <strong>Team Vitality</strong> vs <strong>G2 Esports</strong>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <button class="odd-btn mini-btn" data-match="Vitality vs G2" data-bet="Vitality" data-odds="1.72">1.72</button>
+                      </td>
+                      <td class="text-center">
+                        <span class="text-dim">N/A</span>
+                      </td>
+                      <td class="text-center">
+                        <button class="odd-btn mini-btn" data-match="Vitality vs G2" data-bet="G2 Esports" data-odds="2.15">2.15</button>
+                      </td>
+                      <td class="text-right">
+                        <button class="btn-boost-mini" onclick="window.toast('Special CS2 Knife Round Props Open', 'info')">Special Markets</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section: Live High Roller Bets Social Feed -->
+          <section class="section-block">
+            <div class="section-header">
+              <div class="section-title-wrap">
+                <span class="ticker-pulse-icon">🔥</span>
+                <h2 class="section-title">Community High Roller Wins</h2>
+                <span class="live-ticker-count">Provably fair & verified payouts</span>
+              </div>
+            </div>
+            <div class="winners-ticker-track">
+              <div class="winner-chip">
+                <span class="chip-avatar">🦊</span>
+                <span class="chip-user">User***89</span>
+                <span class="chip-action">won</span>
+                <span class="chip-win text-neon-green">+$3,420.00</span>
+                <span class="chip-market">Arsenal ML @ 1.95</span>
+              </div>
+              <div class="winner-chip">
+                <span class="chip-avatar">⚡</span>
+                <span class="chip-user">CyberWhale</span>
+                <span class="chip-action">won</span>
+                <span class="chip-win text-neon-green">+1.45 BTC</span>
+                <span class="chip-market">Lakers -3.5 Parlay</span>
+              </div>
+              <div class="winner-chip">
+                <span class="chip-avatar">💎</span>
+                <span class="chip-user">Satoshi_01</span>
+                <span class="chip-action">won</span>
+                <span class="chip-win text-neon-green">+$950.00</span>
+                <span class="chip-market">Over 3.5 Goals</span>
+              </div>
+              <div class="winner-chip">
+                <span class="chip-avatar">🚀</span>
+                <span class="chip-user">ApexPunter</span>
+                <span class="chip-action">won</span>
+                <span class="chip-win text-neon-green">+$2,110.00</span>
+                <span class="chip-market">NaVi 2-0</span>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- Right Side: Interactive Betslip Drawer / Panel -->
+        <aside class="betslip-panel" id="betslipPanel">
+          <div class="betslip-header">
+            <div class="betslip-title-wrap">
+              <h3 class="betslip-title">ACTIVE BETSLIP</h3>
+              <span class="betslip-counter-tag" id="betslipBadge">0</span>
+            </div>
+            <div class="betslip-header-actions">
+              <button class="btn-clear-slip" id="clearSlipBtn" title="Clear all selections">Clear</button>
+              <button class="betslip-close-mobile" id="closeBetslipBtn" aria-label="Close Betslip">✕</button>
+            </div>
+          </div>
+
+          <!-- Bet Type Tabs (Single, Parlay / Combo, System) -->
+          <div class="slip-type-tabs">
+            <button class="slip-tab active" data-type="single">Single</button>
+            <button class="slip-tab" data-type="combo">Combo / Parlay</button>
+            <button class="slip-tab" data-type="system">System</button>
+          </div>
+
+          <!-- Bets List Container -->
+          <div class="betslip-content" id="betslipItems">
+            <!-- Empty State -->
+            <div class="betslip-empty-state" id="emptySlipNotice">
+              <div class="empty-icon-wrap">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="12" y1="18" x2="12" y2="12"/>
+                  <line x1="9" y1="15" x2="15" y2="15"/>
+                </svg>
+              </div>
+              <p class="empty-title">Your Betslip is Empty</p>
+              <p class="empty-desc">Click any highlighted odd on the dashboard to build your winning ticket!</p>
+            </div>
+          </div>
+
+          <!-- Betslip Calculation & Staking Footer -->
+          <div class="betslip-footer" id="betslipFooter">
+            <!-- Quick Stake Buttons -->
+            <div class="stake-presets-label">QUICK STAKE (USD):</div>
+            <div class="quick-stake-presets">
+              <button class="preset-chip" data-stake="25">$25</button>
+              <button class="preset-chip" data-stake="50">$50</button>
+              <button class="preset-chip" data-stake="100">$100</button>
+              <button class="preset-chip" data-stake="250">$250</button>
+              <button class="preset-chip" data-stake="max">MAX</button>
+            </div>
+
+            <!-- Stake Input -->
+            <div class="stake-input-box">
+              <span class="stake-curr-label">$</span>
+              <input type="number" id="stakeInput" value="50" min="1" step="5" placeholder="Enter stake...">
+              <span class="stake-curr-code">USD</span>
+            </div>
+
+            <!-- Odds & Payout Summary -->
+            <div class="summary-details">
+              <div class="summary-row">
+                <span class="summary-label">Total Odds Multiplier</span>
+                <span class="summary-val text-neon-cyan" id="totalOddsDisplay">1.00x</span>
+              </div>
+              <div class="summary-row">
+                <span class="summary-label">Estimated Potential Win</span>
+                <span class="summary-val text-neon-green font-mono" id="potentialWinDisplay">$0.00</span>
+              </div>
+            </div>
+
+            <!-- Place Bet Action Button -->
+            <button class="btn-place-bet" id="placeBetBtn">
+              <span class="btn-shimmer"></span>
+              <span class="btn-text">PLACE BET NOW</span>
+            </button>
+
+            <!-- Fairness Guarantee -->
+            <div class="slip-guarantee">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00FF88" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span>Instant Payouts • Provably Fair Smart Contracts</span>
+            </div>
+          </div>
+        </aside>
+
+      </main>
+    </div>
+
+    <!-- Quick Deposit Modal -->
+    <div class="modal-backdrop" id="depositModal">
+      <div class="modal-card">
+        <div class="modal-header">
+          <div class="modal-title-wrap">
+            <span class="modal-badge-icon">⚡</span>
+            <h3 class="modal-title">Deposit Crypto / Fiat</h3>
+          </div>
+          <button class="modal-close-btn" id="closeDepositModalBtn">✕</button>
+        </div>
+
+        <div class="modal-body">
+          <p class="modal-desc">Select cryptocurrency to instantly fund your betting account with zero platform fees:</p>
+          
+          <div class="deposit-coin-picker">
+            <button class="deposit-coin-opt active" data-coin="USDT">
+              <span class="dep-sym">₮</span>
+              <span>USDT (TRC20)</span>
+            </button>
+            <button class="deposit-coin-opt" data-coin="BTC">
+              <span class="dep-sym">₿</span>
+              <span>Bitcoin (BTC)</span>
+            </button>
+            <button class="deposit-coin-opt" data-coin="ETH">
+              <span class="dep-sym">Ξ</span>
+              <span>Ethereum (ETH)</span>
+            </button>
+            <button class="deposit-coin-opt" data-coin="SOL">
+              <span class="dep-sym">◎</span>
+              <span>Solana (SOL)</span>
+            </button>
+          </div>
+
+          <div class="qr-preview-box">
+            <div class="qr-mockup">
+              <!-- SVG Mock QR Code -->
+              <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="120" height="120" rx="12" fill="#131722"/>
+                <rect x="15" y="15" width="30" height="30" rx="4" fill="#00FF88"/>
+                <rect x="22" y="22" width="16" height="16" fill="#131722"/>
+                <rect x="75" y="15" width="30" height="30" rx="4" fill="#00FF88"/>
+                <rect x="82" y="22" width="16" height="16" fill="#131722"/>
+                <rect x="15" y="75" width="30" height="30" rx="4" fill="#00FF88"/>
+                <rect x="22" y="82" width="16" height="16" fill="#131722"/>
+                <rect x="55" y="20" width="10" height="10" fill="#00FF88"/>
+                <rect x="55" y="55" width="10" height="10" fill="#00FF88"/>
+                <rect x="75" y="75" width="12" height="12" fill="#00FF88"/>
+                <rect x="92" y="75" width="12" height="12" fill="#00FF88"/>
+                <rect x="75" y="92" width="28" height="12" fill="#00FF88"/>
+              </svg>
+            </div>
+            <div class="deposit-address-meta">
+              <span class="dep-label">Your Dedicated Deposit Address:</span>
+              <div class="address-copy-bar">
+                <span class="address-code" id="depositAddressText">0x71C...a84E9d7F39b</span>
+                <button class="btn-copy-address" id="copyAddressBtn">Copy</button>
+              </div>
+              <span class="dep-sub">Network: Ethereum / Arbitrum One • Min 10 USDT</span>
+            </div>
+          </div>
+
+          <div class="quick-topup-demo">
+            <span class="topup-label">Simulate Demo Deposit:</span>
+            <div class="demo-deposit-actions">
+              <button class="btn-demo-fund" data-amount="500">+$500.00</button>
+              <button class="btn-demo-fund" data-amount="1000">+$1,000.00</button>
+              <button class="btn-demo-fund" data-amount="2500">+$2,500.00</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notification Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
